@@ -1,0 +1,505 @@
+/* assets/css/style.css */
+/* Import Font Poppins dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Palet Warna Deep Aqua */
+    --deep-aqua: #003B46;
+    --ocean: #07575B;
+    --wave: #66A5AD;
+    --seafoam: #C4DFE6;
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--seafoam);
+    /* Mengubah font default menjadi Poppins */
+    font-family: 'Poppins', sans-serif !important; 
+}
+
+/* --- Komponen Kustom --- */
+
+/* Navbar & Footer */
+.bg-deep-aqua {
+    background-color: var(--deep-aqua) !important;
+}
+
+/* Tombol Utama (Ocean) */
+.btn-ocean {
+    background-color: var(--ocean);
+    color: var(--white);
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-ocean:hover {
+    background-color: var(--deep-aqua);
+    color: var(--wave);
+}
+
+/* Tombol Outline (Wave) */
+.btn-outline-wave {
+    border: 2px solid var(--wave);
+    color: var(--deep-aqua);
+    font-weight: 600;
+}
+
+.btn-outline-wave:hover {
+    background-color: var(--wave);
+    color: var(--white);
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: var(--seafoam);
+    padding: 100px 0;
+    border-bottom: 5px solid var(--wave);
+}
+
+.hero-title {
+    color: var(--deep-aqua);
+    font-weight: bold;
+}
+
+.hero-text {
+    color: var(--ocean);
+}
+
+/* Icon Box Fitur */
+.feature-icon {
+    font-size: 3rem;
+    color: var(--wave);
+    margin-bottom: 1rem;
+}
+
+.card-feature {
+    border: none;
+    transition: 0.3s;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.card-feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    border-bottom: 3px solid var(--wave);
+}
+/* --- LOADER (ANIMASI LOADING) --- */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--seafoam);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 0.5s ease;
+}
+
+/* --- SIDEBAR LAYOUT --- */
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    background-color: var(--deep-aqua);
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: var(--ocean);
+    text-align: center;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--ocean);
+}
+
+#sidebar ul li a {
+    padding: 15px 25px;
+    font-size: 1rem;
+    display: block;
+    color: var(--seafoam);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+#sidebar ul li a:hover, #sidebar ul li.active > a {
+    background: var(--white);
+    color: var(--deep-aqua);
+    font-weight: 600;
+    border-left: 5px solid var(--wave);
+}
+
+#sidebar ul li a i {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+#content {
+    width: 100%;
+    padding: 20px;
+    background-color: #f1f4f6;
+}
+
+/* Card Statistik */
+.stat-card {
+    border-radius: 15px;
+    border: none;
+    transition: transform 0.3s;
+}
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+.icon-box {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+}
+/* --- SIDEBAR TOGGLE (Buka Tutup) --- */
+#sidebar.active {
+    margin-left: -250px;
+}
+
+/* Penyesuaian konten saat sidebar ditutup */
+.wrapper.toggled #content {
+    width: 100%;
+}
+
+/* Tombol Toggle di Navbar */
+#sidebarCollapse {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--deep-aqua);
+}
+
+/* --- DARK MODE STYLES --- */
+body.dark-mode {
+    background-color: #121212 !important; /* Latar Belakang Gelap Pekat */
+    color: #e0e0e0;
+}
+
+/* Card di Dark Mode */
+body.dark-mode .card {
+    background-color: #1e1e1e;
+    color: #fff;
+    border-color: #333;
+}
+
+body.dark-mode .card-header {
+    background-color: #2c2c2c !important;
+    border-bottom: 1px solid #444;
+    color: #fff;
+}
+
+body.dark-mode .text-secondary,
+body.dark-mode .text-muted {
+    color: #b0b0b0 !important;
+}
+
+body.dark-mode .table {
+    color: #fff;
+    border-color: #444;
+}
+
+body.dark-mode .table thead {
+    background-color: #2c2c2c;
+}
+
+/* Navbar di Dark Mode */
+body.dark-mode .navbar {
+    background-color: #1e1e1e !important;
+    box-shadow: 0 4px 6px rgba(255,255,255,0.05) !important;
+}
+
+/* Tombol Mode Malam */
+.theme-toggle-btn {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-size: 1.3rem;
+    color: var(--ocean);
+    transition: transform 0.5s ease;
+}
+
+/* Animasi Putar saat diklik */
+.rotate-icon {
+    transform: rotate(360deg);
+}
+/* --- CUSTOM FILE UPLOAD AREA --- */
+.upload-area {
+    border: 2px dashed var(--wave);
+    border-radius: 15px;
+    background-color: #f8f9fa; /* Warna dasar terang */
+    padding: 3rem;
+    text-align: center;
+    transition: 0.3s;
+    cursor: pointer;
+    position: relative;
+}
+
+.upload-area:hover {
+    background-color: var(--seafoam);
+    border-color: var(--deep-aqua);
+}
+
+.upload-area i {
+    font-size: 4rem;
+    color: var(--ocean);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.upload-area h5 {
+    font-weight: 600;
+    color: var(--deep-aqua);
+}
+
+.upload-area p {
+    color: #6c757d;
+}
+
+/* Sembunyikan input file asli yang jelek */
+.file-input-hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Dark Mode Support untuk Upload Area */
+body.dark-mode .upload-area {
+    background-color: #2c2c2c;
+    border-color: #555;
+}
+body.dark-mode .upload-area:hover {
+    background-color: #3a3a3a;
+}
+body.dark-mode .upload-area h5 {
+    color: #fff;
+}
+body.dark-mode .upload-area p {
+    color: #bbb;
+}
+/* --- CUSTOM TOGGLE SWITCH (Model Kapsul) --- */
+.switch-field {
+	display: flex;
+	overflow: hidden;
+    background-color: #e9ecef;
+    border-radius: 30px; /* Membuat bentuk kapsul bulat */
+    padding: 3px;
+    width: 100%;
+    max-width: 400px; /* Batas lebar agar tidak terlalu panjang */
+}
+
+.switch-field input {
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+	border: 0;
+	overflow: hidden;
+}
+
+.switch-field label {
+	background-color: transparent;
+	color: #6c757d;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1;
+	text-align: center;
+	padding: 12px 20px;
+	margin-right: -1px;
+	border: none;
+	transition: all 0.2s ease-in-out;
+    flex: 1; /* Agar lebar tombol terbagi rata */
+    border-radius: 25px; /* Rounded tombol di dalam */
+    cursor: pointer;
+}
+
+.switch-field label:hover {
+	color: var(--deep-aqua);
+}
+
+/* Warna saat tombol DIPILIH (Active) */
+.switch-field input:checked + label {
+	background-color: var(--ocean); /* Warna Ocean/Deep Aqua */
+    color: white;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Khusus Dark Mode */
+body.dark-mode .switch-field {
+    background-color: #333;
+}
+body.dark-mode .switch-field label {
+    color: #aaa;
+}
+body.dark-mode .switch-field input:checked + label {
+    color: #fff;
+}
+/* --- FOLDER CARD STYLE --- */
+.folder-card {
+    border: none;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    border-left: 5px solid var(--wave); /* Aksen kiri */
+    position: relative;
+    overflow: hidden;
+}
+
+.folder-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-left-color: var(--ocean);
+}
+
+.folder-icon {
+    font-size: 2.5rem;
+    color: #f1c40f; /* Warna kuning folder */
+}
+
+.folder-action-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0; /* Tersembunyi kalau tidak di-hover */
+    transition: 0.3s;
+}
+
+.folder-card:hover .folder-action-btn {
+    opacity: 1; /* Muncul saat di-hover */
+}
+
+/* Dark Mode Folder */
+body.dark-mode .folder-card {
+    background-color: #2c2c2c;
+    border-left-color: #555;
+}
+body.dark-mode .folder-card:hover {
+    border-left-color: var(--wave);
+}
+/* --- MODERN SIDEBAR --- */
+#sidebar {
+    min-width: 260px;
+    max-width: 260px;
+    background: var(--deep-aqua);
+    color: #fff;
+    transition: all 0.3s;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+    z-index: 999;
+}
+
+#sidebar .sidebar-header {
+    padding: 30px 20px;
+    background: rgba(0,0,0,0.1); /* Sedikit gelap */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#sidebar ul.components {
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar ul li {
+    margin: 5px 15px; /* Memberi jarak antar menu */
+}
+
+#sidebar ul li a {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    color: rgba(255,255,255,0.7); /* Warna teks agak transparan */
+    text-decoration: none;
+    border-radius: 10px; /* Sudut membulat */
+    transition: all 0.3s ease;
+}
+
+#sidebar ul li a i {
+    margin-right: 15px;
+    font-size: 1.2rem;
+    width: 25px; /* Lebar tetap agar teks rata */
+    text-align: center;
+}
+
+/* Efek Hover & Active Modern */
+#sidebar ul li a:hover, 
+#sidebar ul li.active > a {
+    color: #fff;
+    background: rgba(255,255,255,0.15); /* Background transparan putih */
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-weight: 500;
+}
+
+/* Tombol Logout di Sidebar Bawah */
+.sidebar-footer {
+    padding: 20px;
+    margin-top: auto; /* Dorong ke paling bawah */
+}
+
+/* --- NAVBAR PROFILE DROPDOWN --- */
+.user-dropdown-toggle {
+    cursor: pointer;
+    padding: 5px 15px;
+    border-radius: 50px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-dropdown-toggle:hover {
+    background-color: #f1f4f6;
+}
+
+.dropdown-menu-custom {
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    padding: 10px;
+    min-width: 200px;
+    margin-top: 10px !important;
+}
+
+.dropdown-item-custom {
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    color: #555;
+    transition: 0.2s;
+}
+
+.dropdown-item-custom:hover {
+    background-color: #f8f9fa;
+    color: var(--ocean);
+}
+
+.dropdown-item-custom i {
+    width: 20px;
+    margin-right: 10px;
+}
